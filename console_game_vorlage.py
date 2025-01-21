@@ -1,15 +1,33 @@
-
 Zeile = 7  
 Spalte = 7  
 
+     [' ' for _ in range(7)] for _ in range(7)
+ ]
 
-def create_board():
-    return [[" " for _ in range(Zeile)] for _ in range(Spalte)]
+PLAYERS = {1: "O", 2: "X"}
+
+def print_board():
+    spielfeld = ""
+    for Zeile in board:
+        spielfeld += "|".join(Zeile) + "\n"
+        spielfeld += "-" * (2 * len(Zeile) - 1) + "\n"
+        print(spielfeld)
+
+print_board()
 
 
-def display_board(board):
-    print("\n  " + "   ".join(str(i+1) for i in range(Zeile)))  # Spaltennummern
-    print(" +" + "---+" * Zeile)  # obere Begrenzung
-    for row in board:
-        print(" | " + " | ".join(Spalte) + " |")  # Zeilen mit Inhalten
-        print(" +" + "---+" * Zeile)  # untere Begrenzung
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
