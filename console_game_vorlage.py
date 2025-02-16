@@ -63,4 +63,5 @@ def check_winner(board, player):
                 board[zeile + 3][spalte] == symbol):
                 return player
 
+
    
