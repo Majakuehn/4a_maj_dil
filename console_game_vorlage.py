@@ -1,4 +1,9 @@
 import random
+import random
+import colorama
+from colorama import Fore, Style
+
+colorama.init(autoreset=True)
 
 
 board = [
@@ -10,7 +15,13 @@ board = [
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 ]
 
-PLAYERS = {1: "O", 2: "X"}
+
+
+
+def print_board():
+    for row in board:
+        print("|" + "|".join(row) + "|")
+    print(" 1 2 3 4 5 6 7")  
 
 def print_board():
     erste_zeile = "|" + board[0][0] + "|" + board[0][1] + "|" + board[0][2] + "|" + board[0][3] + "|" + board[0][4] + "|" + board[0][5] + "|" + board[0][6] + "|" +  board[0][7] +"\n"
