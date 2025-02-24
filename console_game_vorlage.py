@@ -16,6 +16,8 @@ board = [
 ]
 
 
+PLAYERS = {1: "O", 2: "X"}
+PLAYERS = {
 
 
 def print_board():
