@@ -18,6 +18,7 @@ board = [
 
 PLAYERS = {1: "O", 2: "X"}
 PLAYERS = {
+        1: Fore.BLUE + "O" + Style.RESET_ALL, 
 
 
 def print_board():
