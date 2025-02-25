@@ -18,8 +18,9 @@ board = [
 
 PLAYERS = {1: "O", 2: "X"}
 PLAYERS = {
-        1: Fore.BLUE + "O" + Style.RESET_ALL, 
-
+        1: Fore.BLUE + "O" + Style.RESET_ALL,
+        2: Fore.YELLOW + "X" + Style.RESET_ALL,  
+}
 
 def print_board():
     for row in board:
@@ -39,21 +40,18 @@ def print_board():
 
 
 def play_one_round(board, player):
-    while True:
-        try:
-            spalte = int(input(f"Spieler {player} ({PLAYERS[player]}), gib eine Spalte ein (1-7): "))
-            if spalte >= 1 and spalte <= 7:
-                spalte -= 1
-                for zeile in range(5, -1, -1):
-                    if board[zeile][spalte] == " ":
-                        board[zeile][spalte] = PLAYERS[player]
-                        print (zeile, spalte)
-                        return
-                print("Spalte voll. Wähle eine andere.")
-            else:
-                print("Input inkorrekt. Wähle eine Spalte zwischen 1 und 7.")
-        except ValueError:
-            print("Ungültige Eingabe. Bitte gib eine Zahl zwischen 1 und 7 ein.")
+    spalte = input(f"Spieler {player} ({PLAYERS[player]}), gib eine Spalte ein (1-7): ")
+
+    if spalte:  
+        spalte = int(spalte) if spalte in "1234567" else 0  
+        
+        if 1 <= spalte <= 7:  
+            spalte -= 1  
+            
+            for zeile in range(5, -1, -1):
+                if board[zeile][spalte] == " ":
+                 
+        
 
 
 def check_winner(board, player):
