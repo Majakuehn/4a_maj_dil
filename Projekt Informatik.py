@@ -9,6 +9,7 @@ PLAYERS = {
     2: Fore.YELLOW + "X" + Style.RESET_ALL,
 }
 
+# Funktion zum Anzeigen des Spielfelds
 def print_board():
     erste_zeile = "|" + board[0][0] + "|" + board[0][1] + "|" + board[0][2] + "|" + board[0][3] + "|" + board[0][4] + "|" + board[0][5] + "|" + board[0][6] + "|\n"
     zwischenzeile = "-----------------\n"
@@ -20,6 +21,7 @@ def print_board():
     
     print(erste_zeile + zwischenzeile + zweite_zeile + dritte_zeile + vierte_zeile + fünfte_zeile + sechste_zeile + zwischenzeile)
 
+# Funktion, die einen Spieler eine Runde spielen lässt
 def play_one_round(player):
     spalte = input(f"Spieler {player} ({PLAYERS[player]}), gib eine Spalte ein (1-7): ")
     
@@ -37,9 +39,12 @@ def play_one_round(player):
     else:
         print("Ungültige Eingabe. Bitte eine Zahl eingeben.")
 
+
+# Funktion zur Überprüfung des Gewinners
 def check_winner(player):
     symbol = PLAYERS[player]
-
+  
+  # Horizontale Überprüfung
     for zeile in range(6):
         for spalte in range(4):
             if (board[zeile][spalte] == symbol and
@@ -47,8 +52,7 @@ def check_winner(player):
                 board[zeile][spalte + 2] == symbol and
                 board[zeile][spalte + 3] == symbol):
                 return player
-
-
+    # Vertikale Überprüfung
     for zeile in range(3):
         for spalte in range(7):
             if (board[zeile][spalte] == symbol and 
@@ -56,7 +60,7 @@ def check_winner(player):
                 board[zeile + 2][spalte] == symbol and
                 board[zeile + 3][spalte] == symbol):
                 return player
-
+ # Diagonale Überprüfung (von links oben nach rechts unten)
     for zeile in range(3):
         for spalte in range(4):
             if (board[zeile][spalte] == symbol and
@@ -64,7 +68,7 @@ def check_winner(player):
                 board[zeile + 2][spalte + 2] == symbol and
                 board[zeile + 3][spalte + 3] == symbol):
                 return player
-
+ # Diagonale Überprüfung (von links unten nach rechts oben)
     for zeile in range(3, 6):
         for spalte in range(4):
             if (board[zeile][spalte] == symbol and
@@ -99,7 +103,8 @@ while True:
             break
         
         player = 1 if player == 2 else 2 
-    
+   
+    #Frage nach noch einer Runde
     print("Möchtest du noch eine Runde spielen?")
     print("1 = Ja")
     print("2 = Nein")
