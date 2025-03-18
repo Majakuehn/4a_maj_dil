@@ -26,7 +26,7 @@ def play_one_round(player):
     spalte = input(f"Spieler {player} ({PLAYERS[player]}), gib eine Spalte ein (1-7): ")
     
     if spalte:
-        if spalte.isdigit() and int(spalte) in range(1, 8):
+        if spalte in ["1", "2", "3", "4", "5", "6", "7"]:
             spalte = int(spalte) - 1
             for zeile in range(5, -1, -1):
                 if board[zeile][spalte] == " ":
